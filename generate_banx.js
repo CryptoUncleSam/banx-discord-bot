@@ -85,5 +85,3 @@ export function deleteImage(imagePath){
         fs.unlinkSync(imagePath)
     }, 60000);
 }
-
-generateBanx(9745, 'banner')

@@ -4,7 +4,7 @@ Discord bot that generate banx images.
 
 # Usage
 
-1)``` npm install ```
+1) ``` npm install ```
 
 2) Fill .env with info.
 
