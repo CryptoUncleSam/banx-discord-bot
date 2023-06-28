@@ -1,0 +1,19 @@
+{
+  "name": "gib_bot_banx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "deploy": "node deploy-commands.js",
+    "start": "node dsicord.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "hyperspace-client-js": "^1.4.15",
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.0"
+  }
+}
