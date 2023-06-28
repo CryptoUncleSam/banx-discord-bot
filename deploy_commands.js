@@ -21,6 +21,8 @@ const commands = [
           { name: 'No Background', value: 'nobg' },
 					{ name: 'Wallpaper', value: 'wallpaper' },
           { name: 'Twitter Banner', value: 'banner' },
+          { name: 'Wallpaper Clean', value: 'wallpapernologo' },
+          { name: 'Twitter Banner Clean', value: 'bannernologo' },
         )
     )
 ].map((command) => command.toJSON());
