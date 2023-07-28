@@ -19,10 +19,10 @@ const commands = [
         .setRequired(true)
         .addChoices(
           { name: 'No Background', value: 'nobg' },
-					{ name: 'Wallpaper', value: 'wallpaper' },
-          { name: 'Twitter Banner', value: 'banner' },
-          { name: 'Wallpaper Clean', value: 'wallpapernologo' },
-          { name: 'Twitter Banner Clean', value: 'bannernologo' },
+					{ name: 'Phone Wallpaper Logo', value: 'wallpaper' },
+          { name: 'Phone Wallpaper No Logo', value: 'wallpapernologo' },
+          { name: 'Twitter Banner Logo', value: 'banner' },
+          { name: 'Twitter Banner No Logo', value: 'bannernologo' },
         )
     )
 ].map((command) => command.toJSON());
