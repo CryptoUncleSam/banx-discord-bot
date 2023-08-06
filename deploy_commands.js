@@ -1,30 +1,12 @@
-import { SlashCommandBuilder, Routes } from "discord.js";
+import { Routes } from "discord.js";
 import { REST } from "@discordjs/rest";
+import { baxnCommand } from "./banxCommand.js";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const commands = [
-  new SlashCommandBuilder()
-    .setName("banx")
-    .setDescription("Command to generate banx")
-    .addIntegerOption((option) =>
-      option.setName("banxnumber")
-        .setDescription("Number of banx to generate")
-        .setRequired(true)
-    )
-    .addStringOption((option) =>
-      option.setName("imagetype")
-        .setDescription("Type of image to generate")
-        .setRequired(true)
-        .addChoices(
-          { name: 'No Background', value: 'nobg' },
-					{ name: 'Phone Wallpaper Logo', value: 'wallpaper' },
-          { name: 'Phone Wallpaper No Logo', value: 'wallpapernologo' },
-          { name: 'Twitter Banner Logo', value: 'banner' },
-          { name: 'Twitter Banner No Logo', value: 'bannernologo' },
-        )
-    )
+  baxnCommand, 
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN);

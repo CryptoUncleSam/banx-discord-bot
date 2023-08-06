@@ -1,15 +1,20 @@
 import { createCanvas, loadImage } from "canvas";
-import fs from "fs/promises";
 import { getBanxMetadata } from "./hyperspace.js";
 
 // Generate banx from layers given banx number and image type
-export async function generateBanx(banxNumber, imageType) {
+export async function generateBanx(banxNumber, imageType, color) {
   // Get metadata from hyperspace
   const metadata = await getBanxMetadata(banxNumber);
 
   let buffer;
+
+  // If color default get color from metadata
+  if(color=='default'){
+    color = metadata["Background"]
+  }
+
   // Generate image without background
-  if (imageType === "nobg") {
+  if (imageType === "no_background") {
     const canvas = createCanvas(2048, 2048);
     const ctx = canvas.getContext("2d");
 
@@ -38,12 +43,12 @@ export async function generateBanx(banxNumber, imageType) {
   }
 
   // Generate wallpaper
-  if (imageType === "wallpaper") {
+  if (imageType === "phone_wallpaper_logo") {
     const canvas = createCanvas(2048, 4432);
     const ctx = canvas.getContext("2d");
 
     const wallpaper = await loadImage(
-      `./layers/Wallpaper/${metadata["Background"].toLowerCase()}.png`
+      `./layers/Wallpaper/${color.toLowerCase()}.png`
     );
     ctx.drawImage(wallpaper, 0, 0, 2048, 4432);
     const fur = await loadImage(
@@ -70,12 +75,12 @@ export async function generateBanx(banxNumber, imageType) {
     buffer = canvas.toBuffer("image/png");
   }
 
-  if (imageType === "wallpapernologo") {
+  if (imageType === "phone_wallpaper_no_logo") {
     const canvas = createCanvas(2048, 4432);
     const ctx = canvas.getContext("2d");
 
     const wallpaper = await loadImage(
-      `./layers/Wallpaper/nologo/${metadata["Background"].toLowerCase()}.png`
+      `./layers/Wallpaper/nologo/${color.toLowerCase()}.png`
     );
     ctx.drawImage(wallpaper, 0, 0, 2048, 4432);
     const fur = await loadImage(
@@ -102,13 +107,13 @@ export async function generateBanx(banxNumber, imageType) {
     buffer = canvas.toBuffer("image/png");
   }
 
-  // Generate twitter banner
-  if (imageType === "banner") {
+  // Generate twitter/ X banner
+  if (imageType === "x_banner_logo") {
     const canvas = createCanvas(1500, 500);
     const ctx = canvas.getContext("2d");
 
     const wallpaper = await loadImage(
-      `./layers/TwitterBanner/${metadata["Background"].toLowerCase()}.png`
+      `./layers/TwitterBanner/${color.toLowerCase()}.png`
     );
     ctx.drawImage(wallpaper, 0, 0, 1500, 500);
     const fur = await loadImage(
@@ -135,15 +140,13 @@ export async function generateBanx(banxNumber, imageType) {
     buffer = canvas.toBuffer("image/png");
   }
 
-  // Generate twitter banner
-  if (imageType === "bannernologo") {
+  // Generate twitter/ X banner
+  if (imageType === "x_banner_no_logo") {
     const canvas = createCanvas(1500, 500);
     const ctx = canvas.getContext("2d");
 
     const wallpaper = await loadImage(
-      `./layers/TwitterBanner/nologo/${metadata[
-        "Background"
-      ].toLowerCase()}.png`
+      `./layers/TwitterBanner/nologo/${color.toLowerCase()}.png`
     );
     ctx.drawImage(wallpaper, 0, 0, 1500, 500);
     const fur = await loadImage(
@@ -173,9 +176,3 @@ export async function generateBanx(banxNumber, imageType) {
   return buffer;
 }
 
-export function deleteImage(imagePath) {
-  // Delete image after 1 minute
-  setTimeout(() => {
-    fs.unlink(imagePath);
-  }, 60000);
-}

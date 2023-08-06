@@ -1,7 +1,7 @@
 import pkg from "discord.js";
-const { Client, GatewayIntentBits, MessageAttachment } = pkg;
+const { Client, GatewayIntentBits } = pkg;
 import dotenv from "dotenv";
-import { generateBanx, deleteImage } from "./generate_banx.js";
+import { generateBanx } from "./generate_banx.js";
 
 dotenv.config();
 
@@ -34,11 +34,12 @@ client.on("interactionCreate", async (interaction) => {
   if (commandName === "banx") {
     // get banx number and image type from user
     const banxNumber = interaction.options.getInteger("banxnumber");
-    const imageType = interaction.options.getString("imagetype");
+    const color = interaction.options.getString("color");
+    const imageType = interaction.options.getSubcommand();
 
     // generate banx
     try {
-      const buffer = await generateBanx(banxNumber, imageType);
+      const buffer = await generateBanx(banxNumber, imageType, color);
 
       //   finally send reply
 
