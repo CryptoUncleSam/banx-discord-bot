@@ -1,12 +1,14 @@
 import { Routes } from "discord.js";
 import { REST } from "@discordjs/rest";
-import { baxnCommand } from "./banxCommand.js";
+import { banxCommand } from "./banxCommand.js";
+import { banxesCommand } from "./banxesCommand.js";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const commands = [
-  baxnCommand, 
+  banxCommand, 
+  banxesCommand
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN);

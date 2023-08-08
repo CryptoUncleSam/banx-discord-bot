@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "discord.js";
 
-export const baxnCommand = new SlashCommandBuilder()
+export const banxCommand = new SlashCommandBuilder()
   .setName("banx")
   .setDescription("Command to generate banx")
   .addSubcommand(subcommand =>
@@ -88,7 +88,7 @@ export const baxnCommand = new SlashCommandBuilder()
                     { name: 'Default', value: 'default' },
                     { name: 'Blue', value: 'blue' },
                     { name: 'Frakt green', value: 'frakt green' },
-                    { name: 'Frakt green (Marshy)', value: 'green multiple' },
+                    { name: 'Frakt green (Multiple)', value: 'green multiple' },
                     { name: 'Gray', value: 'gray' },
                     { name: 'Green', value: 'green' },
                     { name: 'Navy', value: 'Navy' },

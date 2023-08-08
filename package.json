@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "deploy": "node deploy_commands.js",
-    "start": "node discord.js"
+    "start": "node discord.js",
+    "launch": "node deploy_commands.js && node discord.js"
   },
   "author": "",
   "license": "ISC",
