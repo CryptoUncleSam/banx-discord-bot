@@ -8,8 +8,6 @@ Discord bot that generate banx images.
 
 2) Fill .env with info.
 
-3) ``` npm run deploy ```
-
-4) ```npm run start ```
+3) ``` npm run launch ```
 
 Reference: https://discordjs.guide/creating-your-bot/creating-commands.html#registering-commands
