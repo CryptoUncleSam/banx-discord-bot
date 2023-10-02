@@ -4,6 +4,7 @@ import { generatePhoneWallpaperNoLogo } from "./generate_phone_wallpaper_no_logo
 import { generateBannerX } from "./generate_x_banner.js";
 import { generateBannerNoLogoX } from "./generate_x_banner_no_logo.js";
 import { getBanxMetadata } from "./hyperspace.js";
+import { generateZombie } from "./generate_zombie_banx.js";
 
 // Generate banx from layers given banx number and image type
 export async function generateBanx(banxNumber, imageType, color) {
@@ -39,6 +40,11 @@ export async function generateBanx(banxNumber, imageType, color) {
   // Generate twitter/ X banner
   if (imageType === "x_banner_no_logo") {
     buffer = await generateBannerNoLogoX(metadata, color)
+  }
+
+  // Generate zombie
+  if (imageType === "kill_banx") {
+    buffer = await generateZombie(metadata)
   }
 
   return buffer;

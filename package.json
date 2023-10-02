@@ -13,8 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "canvas": "^2.11.2",
-    "hyperspace-client-js": "^1.4.15",
     "discord.js": "^14.3.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "gif-encoder-2": "^1.0.5",
+    "hyperspace-client-js": "^1.4.15"
   }
 }

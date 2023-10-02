@@ -132,14 +132,7 @@ export async function generateMultiplesBanxs(banxNumbers, color, imageType){
                 );
                 ctx.drawImage(mouth, 235, 250, 250, 250);
             }
-        }
-        
-        
+        }   
     }
-    
-
-    
-    
-
     return canvas.toBuffer("image/png");
 }

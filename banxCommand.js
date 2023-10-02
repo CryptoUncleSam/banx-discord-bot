@@ -15,6 +15,16 @@ export const banxCommand = new SlashCommandBuilder()
   )
   .addSubcommand(subcommand =>
     subcommand
+        .setName('kill_banx')
+        .setDescription('Turn you banx into a zombie')
+        .addIntegerOption((option) =>
+            option.setName("banxnumber")
+                .setDescription("Number of banx to generate")
+                .setRequired(true)
+        )
+  )
+  .addSubcommand(subcommand =>
+    subcommand
         .setName('phone_wallpaper_logo')
         .setDescription('Phone Wallpaper Logo')
         .addIntegerOption((option) =>
